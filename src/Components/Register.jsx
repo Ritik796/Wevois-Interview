@@ -1,6 +1,6 @@
 import { get, ref, update } from "firebase/database";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { Slide, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { database } from "../FIrebase/Firebase";
@@ -13,6 +13,7 @@ const Register = () => {
   const [UserName, setUserName] = useState("");
   const [Phone, setPhone] = useState("");
   const [Gender, setGender] = useState("");
+  const navigate = useNavigate()
   let LastKey = 1;
 
   const HandleSignUpButton = async (e) => {
@@ -75,6 +76,9 @@ const Register = () => {
       setUserName("");
       setPhone("");
       setGender("");
+      setTimeout(() => {
+        navigate("/login")
+      }, 2100);
     } catch (error) {
       toast.error("Something went wrong");
     }
@@ -84,7 +88,7 @@ const Register = () => {
     <>
       <ToastContainer
         position="top-right"
-        autoClose={3000}
+        autoClose={2000}
         hideProgressBar={false}
         theme="light"
         transition={Slide}
