@@ -11,7 +11,7 @@ const Home = () => {
                 <div className="container mx-auto flex justify-between items-center">
                     <div className="text-white font-semibold text-xl">Logo</div>
                     <ul className="flex space-x-4">
-                        <li><Link to="/login" className="text-white hover:text-gray-300">Registeration</Link></li>
+                        <li><Link to="/login" className="text-white hover:text-gray-300">Login</Link></li>
                         <li><a href="#" className="text-white hover:text-gray-300">Add Users</a></li>
                         <li><a href="#" className="text-white hover:text-gray-300">Listing Users</a></li>
                     </ul>
