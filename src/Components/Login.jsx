@@ -5,6 +5,8 @@ import { get, ref } from "firebase/database";
 import { database } from "../FIrebase/Firebase";
 import { Slide, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Common from "../Services/Common";
+import slider1 from  "../assets/slider-1.jpg"
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,7 +50,8 @@ const Login = () => {
   return (
     <>
       <ToastContainer position="top-right" autoClose={1900} />
-      <div className="flex items-center justify-center h-screen bg-gray-100">
+      <Common />
+      <div className="grid grid-cols-4 lg:grid-cols-2" style={{alignItems:'center',justifyContent:'center',display:'flex',height:'85vh'}}>
         <div className="bg-white p-8 rounded shadow-md w-96">
           <h2 className="text-2xl font-semibold mb-4">Login</h2>
           <form>
@@ -86,19 +89,23 @@ const Login = () => {
                 placeholder="Enter your password"
               />
             </div>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
             <button
-              className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-1/2 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               type="submit"
               onClick={HandleLoginForm}
+             
             >
               Login
             </button>
+            </div>
             <h3 className="mt-3">
               Don't have an account?<Link to="/register">Register</Link>
             </h3>
           </form>
         </div>
       </div>
+    
     </>
   );
 };

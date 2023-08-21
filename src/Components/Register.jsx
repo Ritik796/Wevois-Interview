@@ -1,10 +1,10 @@
 import { get, ref, update } from "firebase/database";
 import React, { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Slide, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { database } from "../FIrebase/Firebase";
-
+import Common from "../Services/Common";
 const Register = () => {
   const [FullName, setFullName] = useState("");
   const [Email, setEmail] = useState("");
@@ -94,8 +94,8 @@ const Register = () => {
         transition={Slide}
         newestOnTop={false}
       />
-
-      <div className="flex items-center justify-center h-screen bg-gray-100">
+      <Common />
+      <div className="grid grid-cols-4 lg:grid-cols-2 " style={{ alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
         <div className="bg-white p-20 rounded shadow-md w-106">
           <h2 className="text-2xl font-semibold mb-4">Register</h2>
           <hr className="mb-6 border-t-2 border-gray-300"></hr>
@@ -259,13 +259,15 @@ const Register = () => {
                 <label htmlFor="Others">Others</label>
               </div>
             </div>
-            <button
-              className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              type="submit"
-              onClick={HandleSignUpButton}
-            >
-              SignUp
-            </button>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <button
+                className="w-1/2 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                type="submit"
+                onClick={HandleSignUpButton}
+              >
+                SignUp
+              </button>
+            </div>
             <h3 className="mt-3">
               Already have an account?<Link to="/login">Login</Link>
             </h3>
